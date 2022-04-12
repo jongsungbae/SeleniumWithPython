@@ -11,7 +11,7 @@ class SignInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         baseUrl = "https://tech-army-survey.herokuapp.com/"
-        s = Service('E:\\selenium\\drivers\\chromedriver.exe')
+        s = Service('D:\SeleniumProject\driver_100\chromedriver.exe')
         cls.driver = webdriver.Chrome(service=s)
         cls.driver.implicitly_wait(30)
         cls.driver.maximize_window()
