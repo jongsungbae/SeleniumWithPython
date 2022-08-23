@@ -18,21 +18,31 @@ class LoginTest(unittest.TestCase):
         cls.driver.maximize_window()
         cls.driver.get(baseUrl)
 
-    def test_login_page(self):
+    def test_01_login_page(self):
         driver = self.driver
-
         login = LoginPage(driver)
+
         login.enter_username("Admin")
         login.enter_password("admin123")
         login.click_login()
 
-    def test_logout(self):
+    def test_02_logout(self):
         driver = self.driver
         logout = HomePage(driver)
         logout.click_welcome()
         logout.click_logout()
 
         time.sleep(2)
+
+    def test_03_login_page_invalid(self):
+        driver = self.driver
+        login = LoginPage(driver)
+
+        login.enter_username("test")
+        login.enter_password("test")
+        login.click_login()
+        self.assertEqual(login.invalid_login(), "Invalid credentials")
+
 
     @classmethod
     def tearDownClass(cls) -> None:
