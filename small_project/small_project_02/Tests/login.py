@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 import unittest
-import HtmlTestRunner
 from small_project_02.Pages.homePage import HomePage
 from small_project_02.Pages.loginPage import LoginPage
 
@@ -42,7 +41,6 @@ class LoginTest(unittest.TestCase):
         login.enter_password("test")
         login.click_login()
         self.assertEqual(login.invalid_login(), "Invalid credentials")
-
 
     @classmethod
     def tearDownClass(cls) -> None:

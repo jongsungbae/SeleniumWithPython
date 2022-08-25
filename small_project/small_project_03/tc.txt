@@ -1,0 +1,6 @@
+1. Select iPhones
+2. Take screenshot
+3. Select Laptop(HP Touch HD)
+4. Select delivery date: 31-12-2022
+5. Create a guest account and complete the check out process
+6. Print the total price and the confirmation message in the console
