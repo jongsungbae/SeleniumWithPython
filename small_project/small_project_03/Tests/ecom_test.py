@@ -1,15 +1,11 @@
-import random
 import time
+import unittest
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-import unittest
-
 from selenium.webdriver.support.select import Select
-
-from small_project_02.Pages.homePage import HomePage
-from small_project_02.Pages.loginPage import LoginPage
+from small_project_03.Pages.phone import PhonePage
 
 class LoginTest(unittest.TestCase):
     @classmethod
@@ -23,39 +19,22 @@ class LoginTest(unittest.TestCase):
         cls.driver.get(baseUrl)
 
     def test_iphone(self):
-        menu_phone = self.driver.find_element(By.LINK_TEXT, "Phones & PDAs")
-        menu_phone.click()
+        iphone = PhonePage(self.driver)
 
-        iphone = self.driver.find_element(By.LINK_TEXT, "iPhone")
-        iphone.click()
+        iphone.menubar_phone()
+        self.assertEqual("Phones & PDAs", iphone.get_phone_title())
 
-        first_picture = self.driver.find_element(By.XPATH, '//ul[@class="thumbnails"]/li[1]')
-        first_picture.click()
-        time.sleep(2)
-
-        # screenshot 고민!!!!! => IF ELSE 돌리면 될거 같음
-        right_arrow_button = self.driver.find_element(By.XPATH, '//button[@title="Next (Right arrow key)"]')
-        for i in range(0, 5):
-            self.driver.save_screenshot(f'screenshot_iphone_#{i}.png')
-            right_arrow_button.click()
-            time.sleep(2)
-
-
-
-        self.driver.find_element(By.CSS_SELECTOR, 'button[class="mfp-close"]').click()
+        iphone.click_iphone()
+        iphone.click_iphone_picture()
+        iphone.right_arrow_picture()
 
         # modify Qty
-        quantity = self.driver.find_element(By.CSS_SELECTOR, 'input[id="input-quantity"]')
-        quantity.click()
-        quantity.clear()
-        quantity.send_keys('2')
-        time.sleep(2)
+        iphone.input_quantity("2")
 
         # add cart
-        add_cart = self.driver.find_element(By.CSS_SELECTOR, 'button[id="button-cart"]')
-        add_cart.click()
+        iphone.add_cart()
+        self.assertTrue("Success: You have added" in iphone.add_cart())
 
-        # assert 확인하는 것이 좋겠음
 
     def test_laptop(self):
         # move to laptop section
