@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support import expected_conditions
 
 from small_project_03.Locators.locator import Locators
@@ -13,9 +15,7 @@ class PhonePage():
         self.first_picture_locator = Locators.first_picture_xpath
         self.right_arrow_button_locator = Locators.right_arrow_button_cssSelector
         self.picture_close_locator = Locators.picture_close_cssSelector
-        self.quality_locator = Locators.qualtity_cssSelector
-        self.add_cart_locator = Locators.add_cart_cssSelector
-        self.add_cart_success_text_locator = Locators.add_cart_success_text_cssSelector
+
 
     def menubar_phone(self):
         self.driver.find_element(By.XPATH, self.menu_phone_locator).click()
@@ -37,21 +37,13 @@ class PhonePage():
             if i < 5:
                 self.driver.save_screenshot(f'screenshot_iphone_#{i + 1}.png')
                 right_arrow_button.click()
+                time.sleep(1)
             else:
                 self.driver.save_screenshot(f'screenshot_iphone_#{i + 1}.png')
 
         self.driver.find_element(By.CSS_SELECTOR, self.picture_close_locator).click()
 
-    def input_quantity(self, quantity):
-        quantity_filed = self.driver.find_element(By.CSS_SELECTOR, self.quality_locator)
-        quantity_filed.click()
-        quantity_filed.clear()
-        quantity_filed.send_keys(quantity)
 
-    def add_cart(self):
-        self.driver.find_element(By.CSS_SELECTOR, self.add_cart_locator).click()
-        success_text = self.driver.find_element(By.CSS_SELECTOR, self.add_cart_success_text_locator).text
-        return success_text
 
 
 
