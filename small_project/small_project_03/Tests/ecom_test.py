@@ -1,15 +1,13 @@
 import time
 import unittest
 from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.select import Select
 from small_project_03.Pages.global_page import GlobalPage
 from small_project_03.Pages.phone import PhonePage
 from small_project_03.Pages.laptop import LaptopPage
+from small_project_03.Pages.checkout_page import CheckoutPage
 
-class LoginTest(unittest.TestCase):
+class EcommerceTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         baseUrl= 'http://tutorialsninja.com/demo/'
@@ -20,7 +18,8 @@ class LoginTest(unittest.TestCase):
         cls.driver.maximize_window()
         cls.driver.get(baseUrl)
 
-    def test_iphone(self):
+    @unittest.skip("demonstrating skipping")
+    def test_01_iphone(self):
         iphone = PhonePage(self.driver)
         global_page = GlobalPage(self.driver)
 
@@ -39,7 +38,7 @@ class LoginTest(unittest.TestCase):
         self.assertTrue("Success: You have added" in global_page.add_cart())
 
 
-    def test_laptop(self):
+    def test_02_laptop(self):
         # move to laptop section
         laptop = LaptopPage(self.driver)
         global_page = GlobalPage(self.driver)
@@ -66,43 +65,46 @@ class LoginTest(unittest.TestCase):
         # add cart
         global_page.add_cart()
         self.assertTrue("Success: You have added" in global_page.add_cart())
+        time.sleep(2)
+
+    def test_03_checkout(self):
+        global_page = GlobalPage(self.driver)
+        checkout_page = CheckoutPage(self.driver)
 
         # checkout
-        laptop.checkout()
+        global_page.checkout()
 
         # New customer
-        laptop.new_customer()
+        checkout_page.new_customer()
 
         # scroll screen to billing details
-        laptop.scroll_screen()
+        checkout_page.scroll_screen()
 
         # input personal information
-        laptop.input_first_name("test123")
-        laptop.input_last_name("test456")
-        laptop.input_email("test@test.com")
-        laptop.input_telephone("123-456-789")
-        laptop.input_company("selenium test")
-        laptop.input_address_1("test 12345")
-        laptop.input_address_2("test 45678")
-        laptop.input_city("Toronto")
-        laptop.input_postcode("AAA BBB")
-        laptop.input_country_id("38")
-        laptop.input_zone_id("Ontario")
-        laptop.shipping_check_box()
+        checkout_page.input_first_name("test123")
+        checkout_page.input_last_name("test456")
+        checkout_page.input_email("test@test.com")
+        checkout_page.input_telephone("123-456-789")
+        checkout_page.input_company("selenium test")
+        checkout_page.input_address_1("test 12345")
+        checkout_page.input_address_2("test 45678")
+        checkout_page.input_city("Toronto")
+        checkout_page.input_postcode("AAA BBB")
+        checkout_page.input_country_id("38")
+        checkout_page.input_zone_id("Ontario")
+        checkout_page.shipping_check_box()
 
-        self.assertTrue(laptop.shipping_check_box().is_selected())
-
-        laptop.continue_button()
-        laptop.continue_button2()
-        laptop.continue_button3()
-        laptop.continue_button4()
+        checkout_page.continue_button()
+        checkout_page.continue_button2()
+        checkout_page.continue_button3()
+        checkout_page.continue_button4()
 
 
-        laptop.check_order()
+        checkout_page.check_order()
         order_success_text = "Your order has been placed!"
-        self.assertEqual(laptop.check_order(), order_success_text)
+        self.assertEqual(checkout_page.check_order(), order_success_text)
 
-        laptop.continue_button5()
+        checkout_page.continue_button5()
 
 
 

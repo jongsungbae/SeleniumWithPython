@@ -3,7 +3,7 @@ class Locators():
     add_cart_cssSelector = 'button[id="button-cart"]'
     add_cart_success_text_cssSelector = 'div[class="alert alert-success alert-dismissible"]'
     quantity_cssSelector = 'input[id="input-quantity"]'
-    go_to_cart_xpath = '//span[@id="cart-total"]'
+    go_to_cart_id = 'cart-total'
     checkout_button_xpath = '//p[@class="text-right"]/a[2]'
 
     # menu bar
