@@ -106,31 +106,6 @@ class EcommerceTest(unittest.TestCase):
 
         checkout_page.continue_button5()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @classmethod
     def tearDownClass(cls) -> None:
         cls.driver.quit()
