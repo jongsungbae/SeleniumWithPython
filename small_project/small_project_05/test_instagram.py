@@ -68,8 +68,6 @@ class InstagramTest(unittest.TestCase):
             count += 1
             time.sleep(1)
 
-
-
     @classmethod
     def tearDownClass(cls) -> None:
         cls.driver.quit()
