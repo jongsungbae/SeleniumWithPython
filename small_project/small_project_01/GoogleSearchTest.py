@@ -10,7 +10,7 @@ class GoogleSearchTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         baseUrl= 'https://google.com'
-        s = Service('driver/chromedriver.exe')
+        s = Service('../driver/chromedriver.exe')
 
         cls.driver = webdriver.Chrome(service=s)
         cls.driver.implicitly_wait(10)

@@ -38,6 +38,7 @@ class EcommerceTest(unittest.TestCase):
         self.assertTrue("Success: You have added" in global_page.add_cart())
 
 
+
     def test_02_laptop(self):
         # move to laptop section
         laptop = LaptopPage(self.driver)
