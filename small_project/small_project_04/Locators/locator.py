@@ -43,3 +43,5 @@ class Locators:
     search_result_color_orange_cssSelector = 'a[title="Orange"]'
     search_result_color_blue_cssSelector = 'a[title="Blue"]'
     search_result_add_cart_button_cssSelector = 'button[name="Submit"]'
+    add_cart_result_xpath = '//div[@class="layer_cart_product col-xs-12 col-md-6"]/h2'
+    checkout_button_cssSelector = 'a[title="Proceed to checkout"]'

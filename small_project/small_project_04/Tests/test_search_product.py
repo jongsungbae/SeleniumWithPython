@@ -41,7 +41,7 @@ class MyStoreTest(unittest.TestCase):
 
     def test_05_search_result(self):
         contentPage.select_quantity("3")
-        contentPage.select_size()
+        # contentPage.select_size()
         contentPage.select_color()
         contentPage.add_to_cart()
 
