@@ -6,11 +6,12 @@ import unittest
 from small_project_02.Pages.homePage import HomePage
 from small_project_02.Pages.loginPage import LoginPage
 
+
 class LoginTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        baseUrl= 'https://opensource-demo.orangehrmlive.com/'
-        s = Service('../../driver/chromedriver.exe')
+        baseUrl = "https://opensource-demo.orangehrmlive.com/"
+        s = Service("../../driver/chromedriver.exe")
 
         cls.driver = webdriver.Chrome(service=s)
         cls.driver.implicitly_wait(10)
@@ -45,7 +46,8 @@ class LoginTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls) -> None:
         cls.driver.quit()
-        print('Test Completed')
+        print("Test Completed")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -8,7 +8,8 @@ from small_project_03.Locators.locator import Locators
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
-class LaptopPage():
+
+class LaptopPage:
     def __init__(self, driver):
         self.driver = driver
         self.menu_laptop_locator = Locators.menu_laptop_xpath
@@ -31,7 +32,9 @@ class LaptopPage():
         self.driver.find_element(By.XPATH, self.menu_all_sub_locator).click()
 
     def get_laptop_title(self):
-        laptop_title = self.driver.find_element(By.XPATH, self.laptop_title_locator).text
+        laptop_title = self.driver.find_element(
+            By.XPATH, self.laptop_title_locator
+        ).text
         return laptop_title
 
     def click_laptop(self):
@@ -45,14 +48,12 @@ class LaptopPage():
         self.driver.find_element(By.XPATH, self.calendar_locator).click()
         time.sleep(1)
         choose_month = self.driver.find_element(By.XPATH, self.select_month_locator)
-        month_next_button = self.driver.find_element(By.XPATH, self.nextmonth_button_locator)
+        month_next_button = self.driver.find_element(
+            By.XPATH, self.nextmonth_button_locator
+        )
 
-        while(choose_month.text != 'September 2022'):
+        while choose_month.text != "September 2022":
             month_next_button.click()
         time.sleep(1)
         self.driver.find_element(By.XPATH, self.select_day_locator).click()
         time.sleep(1)
-
-
-
-

@@ -12,9 +12,7 @@ google_search_test = unittest.TestLoader().loadTestsFromTestCase(GoogleSearchTes
 smoke_tests = unittest.TestSuite([google_search_test])
 
 # configure HTMLTestRunner options
-runner = HTMLTestRunner(
-    output='reports'
-)
+runner = HTMLTestRunner(output="reports")
 
 # Run the suite using HTMLTestRunner
 runner.run(smoke_tests)

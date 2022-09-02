@@ -12,9 +12,7 @@ login_test = unittest.TestLoader().loadTestsFromTestCase(LoginTest)
 smoke_tests = unittest.TestSuite([login_test])
 
 # configure HTMLTestRunner options
-runner = HTMLTestRunner(
-    output='../Reports'
-)
+runner = HTMLTestRunner(output="../Reports")
 
 # Run the suite using HTMLTestRunner
 runner.run(smoke_tests)

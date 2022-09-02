@@ -7,11 +7,12 @@ from small_project_03.Pages.phone import PhonePage
 from small_project_03.Pages.laptop import LaptopPage
 from small_project_03.Pages.checkout_page import CheckoutPage
 
+
 class EcommerceTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        baseUrl= 'http://tutorialsninja.com/demo/'
-        s = Service('../../driver/chromedriver.exe')
+        baseUrl = "http://tutorialsninja.com/demo/"
+        s = Service("../../driver/chromedriver.exe")
 
         cls.driver = webdriver.Chrome(service=s)
         cls.driver.implicitly_wait(10)
@@ -36,8 +37,6 @@ class EcommerceTest(unittest.TestCase):
         # add cart
         global_page.add_cart()
         self.assertTrue("Success: You have added" in global_page.add_cart())
-
-
 
     def test_02_laptop(self):
         # move to laptop section
@@ -100,7 +99,6 @@ class EcommerceTest(unittest.TestCase):
         checkout_page.continue_button3()
         checkout_page.continue_button4()
 
-
         checkout_page.check_order()
         order_success_text = "Your order has been placed!"
         self.assertEqual(checkout_page.check_order(), order_success_text)
@@ -110,7 +108,8 @@ class EcommerceTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls) -> None:
         cls.driver.quit()
-        print('Test Completed')
+        print("Test Completed")
+
 
 if __name__ == "__main__":
     unittest.main()

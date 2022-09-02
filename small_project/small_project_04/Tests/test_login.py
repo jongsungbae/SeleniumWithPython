@@ -5,13 +5,14 @@ from selenium.webdriver.chrome.service import Service
 from small_project_04.Pages.indexPage import IndexPage
 from small_project_04.Pages.loginPage import LoginPage
 from small_project_04.Pages.myaccountPage import MyAccountPage
+from small_project_04.Pages.searchResultPage import SearchResultPage
 
 
 class MyStoreTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        baseUrl= 'http://automationpractice.com/index.php'
-        s = Service('../../driver/chromedriver.exe')
+        baseUrl = "http://automationpractice.com/index.php"
+        s = Service("../../driver/chromedriver.exe")
 
         cls.driver = webdriver.Chrome(service=s)
         cls.driver.implicitly_wait(10)
@@ -40,12 +41,14 @@ class MyStoreTest(unittest.TestCase):
         myAccountPage = MyAccountPage(self.driver)
 
         myAccountPage.my_account_validate()
-        myAccountPage.wishlist_click()
+        time.sleep(1)
+        # myAccountPage.wishlist_click()
 
     @classmethod
     def tearDownClass(cls) -> None:
         cls.driver.quit()
-        print('Test Completed')
+        print("Test Completed")
+
 
 if __name__ == "__main__":
     unittest.main()

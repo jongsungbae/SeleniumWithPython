@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class CheckoutPage():
+class CheckoutPage:
     def __init__(self, driver):
         self.driver = driver
         self.guest_checkout_locator = Locators.guest_checkout_cssSelector
@@ -100,7 +100,9 @@ class CheckoutPage():
         dropdown_2.select_by_visible_text(zone_id)
 
     def shipping_check_box(self):
-        shipping_check_box = self.driver.find_element(By.NAME, self.shipping_check_box_locator)
+        shipping_check_box = self.driver.find_element(
+            By.NAME, self.shipping_check_box_locator
+        )
         if shipping_check_box.is_selected:
             pass
         else:
@@ -124,9 +126,10 @@ class CheckoutPage():
         time.sleep(1)
 
     def check_order(self):
-        success_text = self.driver.find_element(By.XPATH, self.checkout_success_text_locators).text
+        success_text = self.driver.find_element(
+            By.XPATH, self.checkout_success_text_locators
+        ).text
         return success_text
 
     def continue_button5(self):
         self.driver.find_element(By.XPATH, self.continue_button_last_locator).click()
-
