@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from small_project_04.Pages.indexPage import IndexPage
 from small_project_04.Pages.searchResultPage import SearchResultPage
 from small_project_04.Pages.productContentPage import SearchContentPage
+from small_project_04.Pages.orderPage import OrderPage
 
 
 class MyStoreTest(unittest.TestCase):
@@ -45,11 +46,19 @@ class MyStoreTest(unittest.TestCase):
         contentPage.select_color()
         contentPage.add_to_cart()
 
+    def test_06_validate_order_page(self):
+        global orderPage
+        orderPage = OrderPage(self.driver)
+
+        orderPage.searchResultPage_validate()
+
+    def test_07_check_price(self):
+        orderPage.check_price()
+
     @classmethod
     def tearDownClass(cls) -> None:
         # cls.driver.quit()
         print("Test Completed")
-
 
 if __name__ == "__main__":
     unittest.main()

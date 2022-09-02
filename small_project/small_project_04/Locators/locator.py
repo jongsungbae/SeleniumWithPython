@@ -45,3 +45,14 @@ class Locators:
     search_result_add_cart_button_cssSelector = 'button[name="Submit"]'
     add_cart_result_xpath = '//div[@class="layer_cart_product col-xs-12 col-md-6"]/h2'
     checkout_button_cssSelector = 'a[title="Proceed to checkout"]'
+
+    # order page
+    orderpage_title_id = 'cart_title'
+    orderpage_unitprice_xpath = '//span[@id = "product_price_1_2_0"]/span'
+    orderpage_qty_cssSelector = 'input[name="quantity_1_2_0_0"]'
+    orderpage_total_product_price_id = 'total_product_price_1_2_0'
+    orderpage_total_price_id = 'total_price'
+    orderpage_shipping_fee_id = 'total_shipping'
+    orderpage_checkout_button_cssSelector = 'a[title="Proceed to checkout"]'
+
+
