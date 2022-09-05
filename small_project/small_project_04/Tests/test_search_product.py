@@ -2,10 +2,16 @@ import time
 import unittest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+
+from small_project_04.Pages.loginPage import LoginPage
 from small_project_04.Pages.indexPage import IndexPage
+from small_project_04.Pages.orderPaymentMethodPage import OrderPaymentMethodPage
+from small_project_04.Pages.orderShippingPage import OrderShippingPage
+from small_project_04.Pages.orderSummaryPage import OrderSummaryPage
 from small_project_04.Pages.searchResultPage import SearchResultPage
 from small_project_04.Pages.productContentPage import SearchContentPage
 from small_project_04.Pages.orderPage import OrderPage
+from small_project_04.Pages.orderAddressPage import OrderAddressPage
 
 
 class MyStoreTest(unittest.TestCase):
@@ -54,11 +60,37 @@ class MyStoreTest(unittest.TestCase):
 
     def test_07_check_price(self):
         orderPage.check_price()
+        orderPage.checkout_button()
+
+        loginPage = LoginPage(self.driver)
+        # input user info
+        loginPage.login("test_ecommerce@test.com", "test123!")
+
+    def test_08_address_page(self):
+        global orderAddressPage
+        orderAddressPage = OrderAddressPage(self.driver)
+        orderAddressPage.checkout_button()
+
+    def test_09_shipping_page(self):
+        global orderShippingPage
+        orderShippingPage = OrderShippingPage(self.driver)
+        orderShippingPage.shipping_page()
+
+    def test_10_payment_method_page(self):
+        global order_payment_method
+        order_payment_method = OrderPaymentMethodPage(self.driver)
+        order_payment_method.payment_page()
+
+    def test_11_validate_order_message(self):
+        global order_summary
+        order_summary = OrderSummaryPage(self.driver)
+        order_summary.order_confirm_page()
 
     @classmethod
     def tearDownClass(cls) -> None:
         # cls.driver.quit()
         print("Test Completed")
+
 
 if __name__ == "__main__":
     unittest.main()

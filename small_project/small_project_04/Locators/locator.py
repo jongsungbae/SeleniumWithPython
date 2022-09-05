@@ -47,12 +47,17 @@ class Locators:
     checkout_button_cssSelector = 'a[title="Proceed to checkout"]'
 
     # order page
-    orderpage_title_id = 'cart_title'
+    orderpage_title_id = "cart_title"
     orderpage_unitprice_xpath = '//span[@id = "product_price_1_2_0"]/span'
     orderpage_qty_cssSelector = 'input[name="quantity_1_2_0_0"]'
-    orderpage_total_product_price_id = 'total_product_price_1_2_0'
-    orderpage_total_price_id = 'total_price'
-    orderpage_shipping_fee_id = 'total_shipping'
+    orderpage_total_product_price_id = "total_product_price_1_2_0"
+    orderpage_total_price_id = "total_price"
+    orderpage_shipping_fee_id = "total_shipping"
     orderpage_checkout_button_cssSelector = 'a[title="Proceed to checkout"]'
-
-
+    orderpage_checkout_button1_cssSelector = 'button[name="processAddress"]'
+    orderpage_shipping_checkbox = 'input[name="cgv"]'
+    orderpage_checkout_button2_cssSelector = 'button[name="processCarrier"]'
+    orderpage_payment_method_bank_cssSelector = 'a[title="Pay by bank wire"]'
+    orderpage_payment_method_check_cssSelector = 'a[title="Pay by check."]'
+    orderpage_order_summary_button_xpath = '//span[text()="I confirm my order"]'
+    orderpage_order_confirm_xpath = "//p/strong"
