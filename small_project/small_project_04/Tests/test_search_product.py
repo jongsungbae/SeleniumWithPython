@@ -14,7 +14,7 @@ from small_project_04.Pages.orderPage import OrderPage
 from small_project_04.Pages.orderAddressPage import OrderAddressPage
 
 
-class MyStoreTest(unittest.TestCase):
+class SearchProductTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         baseUrl = "http://automationpractice.com/index.php"

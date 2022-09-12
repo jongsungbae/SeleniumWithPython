@@ -8,7 +8,7 @@ from small_project_04.Pages.createAccountPage import CreateAccountPage
 from small_project_04.Pages.myaccountPage import MyAccountPage
 
 
-class MyStoreTest(unittest.TestCase):
+class CreateAccountTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         baseUrl = "http://automationpractice.com/index.php"
