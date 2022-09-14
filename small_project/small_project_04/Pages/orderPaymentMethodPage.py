@@ -16,3 +16,4 @@ class OrderPaymentMethodPage:
 
     def payment_page(self):
         self.payment_bank_button.click()
+

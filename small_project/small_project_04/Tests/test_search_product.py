@@ -52,27 +52,22 @@ class SearchProductTest(unittest.TestCase):
         contentPage.select_color()
         contentPage.add_to_cart()
 
-    def test_06_validate_order_page(self):
-        global orderPage
+    def test_06_check_order_summary(self):
         orderPage = OrderPage(self.driver)
 
         orderPage.searchResultPage_validate()
-
-    def test_07_check_price(self):
         orderPage.check_price()
-        orderPage.checkout_button()
 
+    def test_07_check_login(self):
         loginPage = LoginPage(self.driver)
         # input user info
         loginPage.login("test_ecommerce@test.com", "test123!")
 
     def test_08_address_page(self):
-        global orderAddressPage
         orderAddressPage = OrderAddressPage(self.driver)
         orderAddressPage.checkout_button()
 
     def test_09_shipping_page(self):
-        global orderShippingPage
         orderShippingPage = OrderShippingPage(self.driver)
         orderShippingPage.shipping_page()
 

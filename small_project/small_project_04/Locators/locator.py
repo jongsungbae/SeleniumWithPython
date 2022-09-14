@@ -53,11 +53,11 @@ class Locators:
     orderpage_total_product_price_id = "total_product_price_1_2_0"
     orderpage_total_price_id = "total_price"
     orderpage_shipping_fee_id = "total_shipping"
-    orderpage_checkout_button_cssSelector = 'a[title="Proceed to checkout"]'
+    orderpage_checkout_button_xpath = '//a/span[text()="Proceed to checkout"]'
     orderpage_checkout_button1_cssSelector = 'button[name="processAddress"]'
     orderpage_shipping_checkbox = 'input[name="cgv"]'
     orderpage_checkout_button2_cssSelector = 'button[name="processCarrier"]'
     orderpage_payment_method_bank_cssSelector = 'a[title="Pay by bank wire"]'
     orderpage_payment_method_check_cssSelector = 'a[title="Pay by check."]'
     orderpage_order_summary_button_xpath = '//span[text()="I confirm my order"]'
-    orderpage_order_confirm_xpath = "//p/strong"
+    orderpage_order_confirm_xpath = '//p[@class="cheque-indent"]'
